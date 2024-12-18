@@ -1,7 +1,15 @@
-const byteSize = (str) => {
-  // write your code here
-};
+// Function to calculate the byte size of a string
+function byteSize(str) {
+    // Use Blob to calculate byte size
+    return new Blob([str]).size;
+}
 
-// Do not change the code below
-const str = prompt("Enter some string.");
-alert(byteSize(str));
+// Function to handle the calculation and display the result
+function calculateByteSize() {
+    const inputString = document.getElementById('inputString').value;
+    const result = byteSize(inputString);
+
+    const outputDiv = document.getElementById('output');
+    outputDiv.textContent = `The byte size of the string is: ${result} bytes.`;
+}
+

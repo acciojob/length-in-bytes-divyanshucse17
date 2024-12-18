@@ -1,16 +1,85 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Length In Bytes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+        }
+    </style>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+    <div class="container">
+        <h1>String Length in Bytes</h1>
+        <p>Enter a string below to calculate its size in bytes:</p>
 
+        <input type="text" id="inputString" placeholder="Enter your string here">
+        <button onclick="calculateByteSize()">Calculate Byte Size</button>
+
+        <div id="output" class="output"></div>
+    </div>
+
+    <script>
+        // Function to calculate the byte size of a string
+        function byteSize(str) {
+            // Use Blob to calculate byte size
+            return new Blob([str]).size;
+        }
+
+        // Function to handle the calculation and display the result
+        function calculateByteSize() {
+            const inputString = document.getElementById('inputString').value;
+            const result = byteSize(inputString);
+
+            const outputDiv = document.getElementById('output');
+            outputDiv.textContent = `The byte size of the string is: ${result} bytes.`;
+        }
+    </script>
 </body>
-
 </html>
